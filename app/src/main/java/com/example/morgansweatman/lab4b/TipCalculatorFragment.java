@@ -18,7 +18,7 @@ public class TipCalculatorFragment extends Fragment implements View.OnClickListe
     private TextView inputTipPercentage;
     private TextView inputNumOfPeople;
     private TextView outputResult;
-    private Button calculateBtn;
+    protected Button calculateBtn;
 
     public TipCalculatorFragment() {
         // Required empty public constructor
@@ -31,7 +31,7 @@ public class TipCalculatorFragment extends Fragment implements View.OnClickListe
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_tip_calculator, container, false);
 
-        calculateBtn = v.findViewById(R.id.convertBtn);
+        calculateBtn = v.findViewById(R.id.calculateBtn);
         calculateBtn.setOnClickListener(this);
         inputBill = v.findViewById(R.id.inputBill);
         inputTipPercentage = v.findViewById(R.id.inputTipPercentage);
@@ -41,7 +41,9 @@ public class TipCalculatorFragment extends Fragment implements View.OnClickListe
         return v;
     }
 
+    @Override
     public void onClick(View v) {
+
         // gather variables
         Double bill = Double.valueOf(inputBill.getText().toString());
         Double tip = Double.valueOf(inputTipPercentage.getText().toString());
